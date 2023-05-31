@@ -131,11 +131,11 @@ const likeButtonElement = document.querySelectorAll("a.like-button.js-like-butto
 
 const likedPosts = [];
 
-likeButtonElement.addEventListener("click", function(){
-    if(likeButtonElement.classList.contains("activeLike")){
+likeButtonElement.forEach(element => {
+    if(likeButtonElement[element].classList.contains("activeLike")){
         likeButtonElement.classList.remove("activeLike");
     } else{    
     likeButtonElement.classList.add("activeLike");
     }
-})
+});
 
