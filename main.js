@@ -96,17 +96,17 @@ posts.forEach((element, index) => {
             <div class="post__header">
                 <div class="post-meta">                    
                     <div class="post-meta__icon">
-                        <img class="profile-pic" src="https://unsplash.it/300/300?image=15" alt="Phil Mangione">                    
+                        <img class="profile-pic" src="${posts[index].author.image}" alt="propic">                    
                     </div>
                     <div class="post-meta__data">
-                        <div class="post-meta__author">Phil Mangione</div>
-                        <div class="post-meta__time">4 mesi fa</div>
+                        <div class="post-meta__author">${posts[index].author.name}</div>
+                        <div class="post-meta__time">${posts[index].created}</div>
                     </div>                    
                 </div>
             </div>
-            <div class="post__text">Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.</div>
+            <div class="post__text">${posts[index].content}</div>
             <div class="post__image">
-                <img src="https://unsplash.it/600/300?image=171" alt="">
+                <img src="${posts[index].media}" alt="image posted by">
             </div>
             <div class="post__footer">
                 <div class="likes js-likes">
@@ -117,10 +117,23 @@ posts.forEach((element, index) => {
                         </a>
                     </div>
                     <div class="likes__counter">
-                        Piace a <b id="like-counter-1" class="js-likes-counter">80</b> persone
+                        Piace a <b id="like-counter-1" class="js-likes-counter">${posts[index].likes}</b> persone
                     </div>
                 </div> 
             </div>            
         </div>
-    ` 
+    ` ;
+
+    const likeButtonElement = document.querySelector("a.like-button.js-like-button");
+
+    const likedPosts = [];
+
+    likeButtonElement.addEventListener("click", function(){
+        if(likeButtonElement.classList.contains("activeLike")){
+            likeButtonElement.classList.remove("activeLike");
+        } else{    
+        likeButtonElement.classList.add("activeLike");
+        }
+    })
 });
+
