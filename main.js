@@ -124,16 +124,18 @@ posts.forEach((element, index) => {
         </div>
     ` ;
 
-    const likeButtonElement = document.querySelector("a.like-button.js-like-button");
-
-    const likedPosts = [];
-
-    likeButtonElement.addEventListener("click", function(){
-        if(likeButtonElement.classList.contains("activeLike")){
-            likeButtonElement.classList.remove("activeLike");
-        } else{    
-        likeButtonElement.classList.add("activeLike");
-        }
-    })
 });
+
+
+const likeButtonElement = document.querySelectorAll("a.like-button.js-like-button");
+
+const likedPosts = [];
+
+likeButtonElement.addEventListener("click", function(){
+    if(likeButtonElement.classList.contains("activeLike")){
+        likeButtonElement.classList.remove("activeLike");
+    } else{    
+    likeButtonElement.classList.add("activeLike");
+    }
+})
 
