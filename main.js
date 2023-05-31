@@ -131,11 +131,21 @@ const likeButtonElement = document.querySelectorAll("a.like-button.js-like-butto
 
 const likedPosts = [];
 
-likeButtonElement.forEach(element => {
-    if(likeButtonElement[element].classList.contains("activeLike")){
-        likeButtonElement.classList.remove("activeLike");
-    } else{    
-    likeButtonElement.classList.add("activeLike");
-    }
+likeButtonElement.forEach((element, index) => {
+    
+    likeButtonElement[index].addEventListener("click", function(event){
+        if(likeButtonElement[index].classList.contains("activeLike")){
+            likeButtonElement[index].classList.remove("activeLike");
+            posts[index].likes = posts[index].likes - 1;
+        } else{    
+        likeButtonElement[index].classList.add("activeLike");
+        posts[index].likes = posts[index].likes + 1;
+        }
+        event.preventDefault();
+        
+
+        likedPosts.push(`${likeButtonElement[index]}`);
+        console.log(likedPosts);
+    })
 });
 
